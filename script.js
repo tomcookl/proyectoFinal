@@ -17,7 +17,7 @@ const diasSemanales = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sab
 const contador = document.querySelector ('.contador');
 const tiempoLimite = document.querySelector ('.tiempoLimite');
 const items = document.querySelectorAll ('.tiempoLimite-formato h4')
-// console.log(items);
+
 
 let futureDate = new Date (2022, 10, 20, 16, 00, 00);
 console.log(futureDate);
@@ -27,7 +27,7 @@ const horas = futureDate.getHours();
 const minutos = futureDate.getMinutes();
 
 let mes = futureDate.getMonth();
-// console.log(mesesAnuales[mes]);
+
 mes = mesesAnuales[mes];
 
 
@@ -47,22 +47,22 @@ contador.textContent = `la espera finaliza el ${dia} ${fecha} de ${mes} a las ${
 //tiempo futuro en ms para realizar el calculo de la cuenta regresiva
 
 const futureTiempo = futureDate.getTime();
-// console.log(futureTiempo);
+
 
 function getTiempoRestante(){
 const hoy = new Date().getTime();
-// console.log(hoy);
+
 const h = futureTiempo - hoy;
 console.log(h);
 
 //valores en milisegundos
 
 const unDia = 24 * 60 * 60 * 1000;
-// console.log(unDia);
+
 const unaHora = 60 * 60 * 1000;
-// console.log(unaHora);
+
 const unMinuto = 60 * 1000;
-// console.log(unMinuto);
+
 
 //calcuco los valores
 let dias = h/unDia;
@@ -86,3 +86,17 @@ items.forEach(function(items, index){
 })
 }
 getTiempoRestante();
+
+
+// LUXON
+const DateTime = luxon.DateTime
+const Interval = luxon.Interval
+const now = DateTime.now()
+const later = DateTime.local(2022, 11, 20)
+
+let divTimerLx = document.getElementById("timerLx")
+let fexha = Interval.fromDateTimes(now,later)
+
+divTimerLx.innerHTML = `${fexha}`
+
+
